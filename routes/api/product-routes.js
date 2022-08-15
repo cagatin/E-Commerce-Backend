@@ -18,7 +18,12 @@ router.get('/', async (req, res) => {
         },
       ],
     });
-    res.status(200).json(productData);
+    if (!productData) {
+      res.status(404).json({ message: "No products in the database!" });
+      return
+    } else {
+      res.status(200).json(productData);
+    }
   } catch (err) {
     res.status(500).json(err);
   }
@@ -44,6 +49,7 @@ router.get('/:id', async (req, res) => {
     );
     if (!productData) {
       res.status(404).json({ message: 'No such product found in database!' });
+      return;
     } else {
       res.status(200).json(productData);
     }
@@ -126,8 +132,23 @@ router.put('/:id', (req, res) => {
     });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', async (req, res) => {
   // delete one product by its `id` value
+  try {
+    const productData = await Product.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    if (!productData) {
+      res.status(404).json({ message: "No product with that ID!" });
+      return;
+    } else {
+      res.status(200).json(productData);
+    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 module.exports = router;
