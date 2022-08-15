@@ -35,14 +35,15 @@ router.get('/:id', async (req, res) => {
         include: [
           {
             model: Product,
-          }
+          },
         ]
       }
     );
     if (!tagData) {
       res.status(404).json({ message: `No Tag found with the specified ID!` });
+    } else {
+      res.status(200).json(tagData);
     }
-    res.status(200).json(tagData);
   } catch (err) {
     res.status(404).json({ message: `No Tag found with the specified ID!` });
   }
@@ -50,6 +51,8 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', (req, res) => {
   // create a new tag
+  /* req.body should look like this
+  */
 });
 
 router.put('/:id', (req, res) => {
