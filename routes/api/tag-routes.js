@@ -40,11 +40,11 @@ router.get('/:id', async (req, res) => {
       }
     );
     if (!tagData) {
-      res.status(404).json({ message: `No Tag found with the ID of ${res.params.id}` });
+      res.status(404).json({ message: `No Tag found with the specified ID!` });
     }
     res.status(200).json(tagData);
   } catch (err) {
-    res.status(404).json({ message: `No Tag found with the ID of ${res.params.id}` });
+    res.status(404).json({ message: `No Tag found with the specified ID!` });
   }
 });
 
