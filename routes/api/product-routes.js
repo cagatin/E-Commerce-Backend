@@ -147,7 +147,7 @@ router.delete('/:id', async (req, res) => {
       res.status(200).json(productData);
     }
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).json({ message: "No product with that ID!" });
   }
 });
 
