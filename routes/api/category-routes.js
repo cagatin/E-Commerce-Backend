@@ -106,7 +106,7 @@ router.put('/:id', async (req, res) => {
         }
       }
     );
-    res.status(200).json({ message: "Sucessfully Updated!" });
+    res.status(200).json(updateData);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -124,7 +124,7 @@ router.delete('/:id', (req, res) => {
       res.status(404).json({ message: "No Category with the specified ID found!" });
       return;
     } else {
-      res.status(200).json({ message: "Category deleted!" });
+      res.status(200).json(categoryData);
     }
   } catch (err) {
     res.status(500).json(err);
