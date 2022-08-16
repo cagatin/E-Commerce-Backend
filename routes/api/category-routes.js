@@ -54,7 +54,22 @@ router.post('/', (req, res) => {
     }
   */
   try {
+    //check if the category already exists in the database
+    const checkData = await Category.findOne({
+      where: {
+        category_name: req.body.category_name
+      }
+    });
+
+    if (checkData) {
+      res.status(404).json({ message: "Category already exists in the database!" });
+      return;
+    }
+
+    // Create the new category
     const categoryData = await Category.create(req.body);
+
+    // Send success data back to user
     res.status(200).json({ message: "Category Created Successfully" });
   } catch (err) {
     res.status(400).json(err);
