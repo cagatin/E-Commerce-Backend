@@ -36,7 +36,7 @@ Once you have entered your credentials, you can now connect to the database usin
 To view requests made to the backend, we can utilize ```Insomnia``` or ```Postman``` to send requests to our server.  <br />
 
 ## Demonstration
-### [Click Here for a demonstration video!](https://watch.screencastify.com/v/IoRYChUYMSXFO9Bo78Hv) <br/>
+### [Click Here for a demonstration video!](https://watch.screencastify.com/v/LzSFjov6bqSGIh9yznhk) <br/>
 
 ## Contribute
 Fork the repository and send a pull request with your changes. <br/>
